@@ -102,6 +102,4 @@ The goal of this portfolio is to showcase enterprise networking skills through c
 - ACL Troubleshooting
 - Packet Flow Analysis
 
----
 
-# Repository Structure
