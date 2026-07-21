@@ -1,105 +1,70 @@
 # Enterprise Networking Portfolio
 
-A collection of hands-on enterprise networking projects built using **Cisco Packet Tracer**. This repository demonstrates practical network design, implementation, validation, and troubleshooting through real-world enterprise scenarios.
-
-The goal of this portfolio is to showcase enterprise networking skills through complete network deployments, including routing, switching, redundancy, security, and troubleshooting.
+The goal of this portfolio is to demonstrate the ability to design, configure, verify, and troubleshoot enterprise networks using Cisco technologies.
 
 ---
 
 # Projects
 
-| Project | Description | Status |
-|---------|-------------|--------|
-| **01 - Enterprise Campus Network** | Complete enterprise campus design with VLANs, Layer 3 Switching, OSPF, HSRP, EtherChannel, ACLs, DHCP, DNS, and NAT. | 🚧 In Progress |
-| **02 - 
+| Project | Description | Technologies | Status |
+|---------|-------------|--------------|--------|
+| [Enterprise Campus Network](./Enterprise-Campus-Network) | Redundant enterprise campus network using a two-tier collapsed core architecture | VLANs, HSRP, OSPF, DHCP, NAT, ACL, STP, SSH | Completed |
+| Future Project | Branch network design | VPN, WAN, Routing, VLANs, HSRP, OSPF, DHCP, File Server, NAT, ACL, STP, SSH, SNMP, Syslog, DNS | Planned |
 
----
+# Technical Skills Demonstrated
 
-# Technologies
+## Network Fundamentals
+- IPv4/IPv6 addressing and subnetting
+- VLANs and network segmentation
+- Ethernet, ARP, MAC addressing
+- OSI and TCP/IP models
+- Layer 1/2/3 troubleshooting
 
-## Layer 2 Switching
+## Switching
+- Cisco IOS configuration
+- VLAN creation and management
+- Access and trunk ports (802.1Q)
+- Inter-VLAN routing
+- Rapid PVST+
+- EtherChannel (LACP/PAgP)
+- Port Security
 
-- VLANs
-- 802.1Q Trunking
-- Access Ports
-- Native VLAN Configuration
-- Spanning Tree Protocol (STP)
-- Rapid Spanning Tree Protocol (RSTP)
-- Root Bridge Selection
-- EtherChannel
-- LACP
-
----
-
-## Layer 3 Routing
-
-- Inter-VLAN Routing
-- Layer 3 Switching
-- Static Routing
-- Default Routing
-- OSPF
-- OSPF Neighbor Relationships
-- OSPF Cost Manipulation
-- Route Summarization
-
----
-
-## High Availability
-
-- HSRP (Hot Standby Router Protocol)
-- Gateway Redundancy
-- Redundant Uplinks
-- Link Failover
-- Network Resiliency Testing
-
----
+## Routing
+- Static routing
+- Default routing
+- OSPF dynamic routing
+- OSPF neighbor relationships
+- Route verification and troubleshooting
+- First Hop Redundancy Protocols (HSRP)
 
 ## Network Services
-
-- DHCP
-- DHCP Pools
-- DHCP Relay (`ip helper-address`)
-- DNS
-- NAT
-- PAT (Port Address Translation)
-- Internet Edge Connectivity
-
----
+- DHCP server configuration
+- DHCP relay (ip helper-address)
+- NAT/PAT
+- DNS concepts
+- SSH remote management
+- AAA authentication and authorization (TACACS+/RADIUS concepts)
+- Network device configuration backup to server (TFTP/SCP)
 
 ## Network Security
-
-- Standard ACLs
-- Extended ACLs
-- VLAN Segmentation
-- Guest Network Isolation
-- Department-Based Access Control
-- Port Security
-- Secure Network Design
-
----
+- Standard and extended ACLs
+- Device hardening
+- Password encryption
+- Secure remote access
+- Switch security best practices
 
 ## Enterprise Network Design
+- Campus network architecture
+- Layer 2 and Layer 3 design
+- High availability and redundancy
+- Network documentation
+- IP addressing design
 
-- Campus Network Architecture
-- Core / Distribution / Access Design
-- Multi-Site Network Design
-- Branch Office Connectivity
-- ISP Edge Configuration
-- Server Network Implementation
-
+## Troubleshooting
+- Interface and connectivity verification
+- VLAN and trunk troubleshooting
+- Routing table analysis
+- OSPF troubleshooting
+- DHCP and NAT troubleshooting
+- End-to-end connectivity testing
 ---
-
-## Troubleshooting & Validation
-
-- Network Connectivity Testing
-- Ping and Traceroute Analysis
-- VLAN Troubleshooting
-- Trunk Troubleshooting
-- STP Troubleshooting
-- EtherChannel Troubleshooting
-- OSPF Neighbor Troubleshooting
-- HSRP Failover Testing
-- ACL Troubleshooting
-- Packet Flow Analysis
-
-
