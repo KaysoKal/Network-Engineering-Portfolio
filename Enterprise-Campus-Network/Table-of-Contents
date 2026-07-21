@@ -1,0 +1,31 @@
+Project-01-Redundant-Enterprise-Campus-Network
+│
+├── README.md
+│
+├── Topology
+│   ├── Enterprise_Topology.png
+│   └── Addressing_Plan.png
+│
+├── Packet_Tracer
+│   └── Enterprise_Campus_Network.pkt
+│
+├── Configurations
+│   ├── Core1_Config.txt
+│   ├── Core2_Config.txt
+│   ├── Access1_Config.txt
+│   ├── Access2_Config.txt
+│   ├── Edge_Router_Config.txt
+│   └── ISR_Config.txt
+│
+├── Verification
+│   ├── VLAN_Verification.png
+│   ├── OSPF_Verification.png
+│   ├── HSRP_Verification.png
+│   ├── DHCP_Verification.png
+│   ├── NAT_Verification.png
+│   └── Connectivity_Testing.png
+│
+└── Documentation
+    ├── Troubleshooting.md
+    ├── Design_Decisions.md
+    └── Lessons_Learned.md
