@@ -1,0 +1,280 @@
+L3SW1#show run
+Building configuration...
+
+Current configuration : 4964 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname L3SW1
+!
+!
+no profinet
+enable secret 5 $1$mERr$9cTjUIEqNGurQiFU.ZeCi1
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username admin secret 5 $1$mERr$AFX/pZT1Lh7NP3Dp3P/qq/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree vlan 10,20,30,40,50,60,90,100 priority 24576
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ no switchport
+ ip address 172.16.200.1 255.255.255.248
+ ip ospf network point-to-point
+ ip ospf priority 1
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/2
+ switchport trunk allowed vlan 10,20,30,40,50,60,90,100
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/3
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/4
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/5
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/6
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/7
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/9
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/10
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/11
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/12
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/13
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/14
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/15
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/16
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/17
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/18
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/19
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/20
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/21
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/22
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/23
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/24
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet0/1
+ switchport trunk allowed vlan 10,20,30,40,50,60,90,100
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ switchport trunk allowed vlan 10,20,30,40,50,60,90,100
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 00d0.bcc5.5a01
+ ip address 172.16.10.4 255.255.255.192
+ ip helper-address 172.16.100.2
+ standby 10 ip 172.16.10.1
+ standby 10 priority 110
+ standby 10 preempt
+!
+interface Vlan20
+ mac-address 00d0.bcc5.5a02
+ ip address 172.16.20.4 255.255.255.224
+ ip helper-address 172.16.100.2
+ standby 20 ip 172.16.20.1
+ standby 20 priority 110
+ standby 20 preempt
+!
+interface Vlan30
+ mac-address 00d0.bcc5.5a03
+ ip address 172.16.30.4 255.255.255.192
+ ip helper-address 172.16.100.2
+ standby 30 ip 172.16.30.1
+ standby 30 priority 110
+ standby 30 preempt
+!
+interface Vlan40
+ mac-address 00d0.bcc5.5a04
+ ip address 172.16.40.4 255.255.255.128
+ ip helper-address 172.16.100.2
+ standby 40 ip 172.16.40.1
+ standby 40 priority 110
+ standby 40 preempt
+!
+interface Vlan50
+ mac-address 00d0.bcc5.5a05
+ ip address 172.16.50.4 255.255.255.0
+ ip helper-address 172.16.100.2
+ standby 50 ip 172.16.50.1
+ standby 50 priority 110
+ standby 50 preempt
+!
+interface Vlan60
+ mac-address 00d0.bcc5.5a06
+ ip address 172.16.60.4 255.255.255.128
+ ip helper-address 172.16.100.2
+ standby 60 ip 172.16.60.1
+ standby 60 priority 110
+ standby 60 preempt
+!
+interface Vlan90
+ mac-address 00d0.bcc5.5a07
+ ip address 172.16.90.4 255.255.255.224
+ ip helper-address 172.16.100.2
+ standby 90 ip 172.16.90.1
+ standby 90 priority 110
+ standby 90 preempt
+!
+interface Vlan100
+ mac-address 00d0.bcc5.5a08
+ ip address 172.16.100.4 255.255.255.0
+ ip helper-address 172.16.100.2
+ standby 100 ip 172.16.100.1
+ standby 100 priority 110
+ standby 100 preempt
+!
+router ospf 1
+ router-id 1.1.1.1
+ log-adjacency-changes
+ passive-interface default
+ no passive-interface FastEthernet0/1
+ network 172.16.0.0 0.0.255.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CAuthorized USERS ONLY!^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 0822455D0A16
+ login
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
