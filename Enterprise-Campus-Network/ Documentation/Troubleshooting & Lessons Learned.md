@@ -80,7 +80,31 @@ DHCP relies on both proper client configuration and correct relay settings. The 
 
 ---
 
-## Issue 4 – Incorrect Static Route
+## Issue 4 – SSH Connection Failed Due to Missing RSA Keys
+
+### Problem
+SSH access to the switch failed. The switch was reachable through the management VLAN, and user authentication was configured, but the SSH session was immediately closed by the switch.
+
+### Root Cause
+The switch did not have an RSA key pair generated. Although the hostname, domain name, username, and VTY lines were configured correctly, SSH requires cryptographic keys to establish a secure connection.
+
+### Resolution
+- Generated RSA keys on the switch.
+- Verified the VTY lines were configured to use local user authentication and allow SSH connections.
+
+### Verification
+
+```bash
+show ip ssh
+show crypto key mypubkey rsa
+show running-config | section line vty
+```
+### Lesson Learned
+SSH requires more than a configured username and VTY lines. A device must have a generated RSA key pair before it can create a secure SSH session. Always verify SSH prerequisites, including domain name configuration, user authentication, VTY settings, and cryptographic keys when troubleshooting remote access issues.
+
+---
+
+## Issue 5 – Incorrect Static Route
 
 ### Problem
 The Edge router could reach the core router amd could not reach internal VLAN networks.
@@ -104,7 +128,7 @@ Static routes must point to a reachable neighboring router interface. An incorre
 
 ---
 
-## Issue 5 – Overlapping IP Addressing
+## Issue 6 – Overlapping IP Addressing
 
 ### Problem
 A router rejected an interface IP configuration.
@@ -127,7 +151,7 @@ Each routed Layer 3 interface requires its own subnet. Unlike VLANs, routed inte
 
 ---
 
-## Issue 6 – OSPF Network Type
+## Issue 7 – OSPF Network Type
 
 ### Problem
 Router-to-router Ethernet links were performing unnecessary DR/BDR elections.
@@ -152,7 +176,7 @@ Using the point-to-point network type on dedicated router links simplifies OSPF 
 
 ---
 
-## Issue 7 – NAT/PAT Configuration
+## Issue 8 – NAT/PAT Configuration
 
 ### Problem
 Internal devices could not access external networks.
