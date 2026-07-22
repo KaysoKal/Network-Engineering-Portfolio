@@ -182,4 +182,18 @@ Verified:
 - ACL functionality
 - End-to-end connectivity
 
-The network was then tested by simulating failures to verify redundancy and confirm that services remained available.
+# Implementation Strategy
+
+The network was deployed from the inside out.
+
+1. Build and secure the infrastructure.
+2. Configure Layer 2 connectivity.
+3. Enable Layer 3 routing.
+4. Add redundancy mechanisms.
+5. Deploy network services.
+6. Configure edge connectivity.
+7. Apply security controls.
+8. Verify each technology individually.
+9. Perform end-to-end and failover testing.
+
+Following this sequence ensured that each layer was operational before introducing additional services, making troubleshooting easier and reducing deployment complexity.
