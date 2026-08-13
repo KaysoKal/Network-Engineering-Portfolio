@@ -9,7 +9,7 @@ The goal of this portfolio is to demonstrate the ability to design, configure, v
 | Project | Description | Technologies | Status |
 |---------|-------------|--------------|--------|
 | [Enterprise Campus Network](./Enterprise-Campus-Network) | Redundant enterprise campus network using a two-tier collapsed core architecture | VLANs, HSRP, OSPF, DHCP, NAT, ACL, STP, SSH | Completed |
-| [Enterprise Multi-Site-Network](./Enterprise Multi-Site-Network) | Three-site branch network over a dual-ISP WAN, with GRE tunneling and dynamic routing between sites | GRE Tunneling, OSPF, HSRP, VLANs, DHCP Relay, NAT/PAT, ACL, EtherChannel, STP, SSH, TFTP, SYSLOG, DNS, Router-on-Stick | Completed |
+| https://github.com/KaysoKal/Network-Engineering-Portfolio/tree/main/Enterprise%20Multi-Site-Network | Three-site branch network over a dual-ISP WAN, with GRE tunneling and dynamic routing between sites | GRE Tunneling, OSPF, HSRP, VLANs, DHCP Relay, NAT/PAT, ACL, EtherChannel, STP, SSH, TFTP, SYSLOG, DNS, ROUTER-ON-STICK | Completed |
 
 # Technical Skills Demonstrated
 
