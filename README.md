@@ -9,7 +9,7 @@ The goal of this portfolio is to demonstrate the ability to design, configure, v
 | Project | Description | Technologies | Status |
 |---------|-------------|--------------|--------|
 | [Enterprise Campus Network](./Enterprise-Campus-Network) | Redundant enterprise campus network using a two-tier collapsed core architecture | VLANs, HSRP, OSPF, DHCP, NAT, ACL, STP, SSH | Completed |
-| Enterprise Multi-Site-Network | Branch network design | VPN, WAN, Routing, VLANs, HSRP, OSPF, DHCP, File Server, NAT, ACL, STP, SSH, SNMP, Syslog, DNS | Planned |
+| [Enterprise Multi-Site-Network](./Enterprise Multi-Site-Network) |Branch network design | VPN, WAN, Routing, VLANs, HSRP, OSPF, DHCP, File Server, NAT, ACL, STP, SSH, SNMP, Syslog, DNS | Completed |
 
 # Technical Skills Demonstrated
 
