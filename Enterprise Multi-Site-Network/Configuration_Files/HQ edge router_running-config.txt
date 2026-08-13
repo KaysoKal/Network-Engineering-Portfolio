@@ -1,0 +1,160 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname hq_Edge
+!
+!
+!
+enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username admin secret 5 $1$mERr$AFX/pZT1Lh7NP3Dp3P/qq/
+!
+!
+license udi pid CISCO2911/K9 sn FTX15247ABS-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name ssh.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel0
+ ip address 172.16.1.1 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/1
+ tunnel destination 200.0.0.5
+!
+!
+interface Tunnel1
+ ip address 172.16.2.1 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/1
+ tunnel destination 200.0.0.9
+!
+!
+interface Tunnel2
+ ip address 172.16.3.1 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/2
+ tunnel destination 192.0.0.9
+!
+!
+interface Tunnel3
+ ip address 172.16.4.1 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/2
+ tunnel destination 192.0.0.5
+!
+!
+interface Tunnel4
+ ip address 172.16.5.1 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/1
+ tunnel destination 10.255.0.1
+!
+!
+interface GigabitEthernet0/0
+ description Link_to_HQ_Router
+ ip address 10.255.100.2 255.255.255.252
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Link_to_ISP1
+ ip address 200.0.0.1 255.255.255.252
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description Link_to_ISP_Backup
+ ip address 192.0.0.1 255.255.255.252
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 4.4.4.4
+ log-adjacency-changes
+ network 10.255.100.0 0.0.0.3 area 0
+ network 172.16.1.0 0.0.0.3 area 0
+ network 172.16.2.0 0.0.0.3 area 0
+ network 172.16.4.0 0.0.0.3 area 0
+ network 172.16.3.0 0.0.0.3 area 0
+!
+ip nat inside source list NAT-HQ interface GigabitEthernet0/1 overload
+ip classless
+ip route 0.0.0.0 0.0.0.0 200.0.0.2 
+ip route 0.0.0.0 0.0.0.0 192.0.0.2 10
+ip route 192.0.0.8 255.255.255.252 192.0.0.2 
+ip route 10.30.0.0 255.255.0.0 172.16.3.2 200
+ip route 192.0.0.4 255.255.255.252 192.0.0.2 
+ip route 10.255.0.0 255.255.255.252 200.0.0.2 
+!
+ip flow-export version 9
+!
+!
+ip access-list standard SSH-MGMT
+ permit 10.10.90.0 0.0.0.31
+ permit 10.20.90.0 0.0.0.31
+ permit 10.30.90.0 0.0.0.31
+ deny any
+ip access-list standard NAT-HQ
+ permit 10.10.0.0 0.0.255.255
+!
+banner motd #AUTHORIZED USERS ONLY!#
+!
+!
+!
+!
+logging trap debugging
+logging 10.10.80.4
+line con 0
+ password 7 0822455D0A16
+ login
+!
+line aux 0
+!
+line vty 0 4
+ access-class SSH-MGMT in
+ login local
+ transport input ssh
+!
+!
+ntp server 10.10.80.4
+!
+end
+
