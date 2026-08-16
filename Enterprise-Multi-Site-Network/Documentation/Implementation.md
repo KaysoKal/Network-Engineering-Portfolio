@@ -23,10 +23,6 @@ Configured all network devices with a consistent baseline before implementing ne
 * Configured login banners
 * Saved device configurations
 
-### Purpose
-
-Creating a consistent baseline simplifies administration and secures management access before additional services are deployed.
-
 ---
 
 ## 2. Layer 2 Configuration
@@ -43,10 +39,6 @@ Configured the access layer to provide connectivity for end devices at HQ and bo
 * Configured EtherChannel using LACP between the HQ core switches
 * Moved unused ports to VLAN 999 and shut them down
 
-### Purpose
-
-The Layer 2 network provides user connectivity while separating departments into individual broadcast domains and preventing switching loops.
-
 ---
 
 ## 3. Layer 3 Configuration
@@ -61,10 +53,6 @@ Configured Layer 3 routing at HQ using dual core switches and at each branch usi
 * Assigned gateway addresses
 * Configured routed links toward the edge router
 
-### Purpose
-
-Layer 3 routing provides inter-VLAN communication at each site and forms the routing backbone that the WAN and dynamic routing protocols build upon.
-
 ---
 
 ## 4. Gateway Redundancy
@@ -78,10 +66,6 @@ Configured HSRP between the two HQ core switches and per-VLAN HSRP at each branc
 * Configured HSRP priorities
 * Enabled preemption
 
-### Purpose
-
-HSRP provides continuous default gateway availability by allowing a standby device to automatically take over if the active gateway becomes unavailable.
-
 ---
 
 ## 5. WAN Connectivity
@@ -94,10 +78,6 @@ Configured physical WAN connectivity between each site and both ISPs, using stat
 * Configured primary default routes toward ISP1
 * Configured floating static default routes toward the backup ISP using a higher administrative distance
 * Configured summarized static return routes on each ISP router
-
-### Purpose
-
-Static WAN routing establishes basic Internet and inter-site reachability through the ISP core while providing automatic failover to the backup ISP if the primary path becomes unavailable.
 
 ---
 
@@ -113,10 +93,6 @@ Configured GRE tunnels between the HQ edge router and each branch router, provid
 * Configured primary tunnels over ISP1
 * Configured backup tunnels over the secondary ISP
 
-### Purpose
-
-GRE tunnels encapsulate private traffic inside publicly addressed outer headers, allowing private LAN subnets to traverse a service-provider network that only routes public WAN addresses.
-
 ---
 
 ## 7. Dynamic Routing — OSPF over GRE
@@ -130,10 +106,6 @@ Configured single-area OSPF across the GRE tunnels and internal routed transit l
 * Configured passive interfaces for user VLANs
 * Configured point-to-point OSPF network types on routed transit links
 * Enabled non-passive OSPF on GRE tunnel interfaces
-
-### Purpose
-
-OSPF dynamically exchanges routing information across the GRE overlay. This allows each site to automatically learn the LAN networks of the other sites and reconverge onto the backup tunnel when the primary path fails.
 
 ---
 
@@ -150,10 +122,6 @@ Configured centralized DHCP, DNS, NTP, and Syslog services.
 * Configured NTP synchronization with the central server
 * Configured centralized Syslog
 
-### Purpose
-
-Centralized services allow devices across multiple VLANs and sites to automatically obtain network configuration while maintaining consistent time synchronization and centralized logging.
-
 ---
 
 ## 9. NAT/PAT
@@ -165,10 +133,6 @@ Configured NAT/PAT at each site's WAN edge.
 * Defined inside and outside NAT interfaces
 * Configured standard ACLs identifying internal networks
 * Configured PAT using overload
-
-### Purpose
-
-NAT allows internal private IP addresses to communicate with external networks while conserving public IP addresses.
 
 ---
 
@@ -184,10 +148,6 @@ Applied security controls throughout the network to protect infrastructure and r
 * Encrypted passwords
 * Secured console and VTY access
 * Restricted management access to the management VLAN using the `SSH-MGMT` ACL
-
-### Purpose
-
-These controls protect network devices, restrict unauthorized access, and secure remote administration across all three sites.
 
 ---
 
@@ -211,10 +171,6 @@ Each technology was validated individually after implementation before performin
 * ACL functionality
 * End-to-end connectivity across all three sites
 * Primary-to-backup WAN failover
-
-### Purpose
-
-Verification ensures that each component operates correctly both independently and as part of the complete network architecture. Failover testing confirms that redundant paths and gateway technologies provide continued connectivity when primary resources become unavailable.
 
 ---
 
