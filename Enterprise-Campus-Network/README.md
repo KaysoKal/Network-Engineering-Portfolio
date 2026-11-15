@@ -19,7 +19,7 @@ The network was designed to provide redundancy, scalability, and reliable user c
 
 # Network Topology
 ![Logical Topology](Topology/logical%20Topology.png)
-![Physical Topology](Topology/Physical%20Topology.png)
+![Physical Topology](Topology/Physcial%20Topolgy.png)
 
 ## Architecture
 
