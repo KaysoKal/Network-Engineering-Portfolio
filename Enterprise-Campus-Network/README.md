@@ -19,7 +19,7 @@ The network was designed to provide redundancy, scalability, and reliable user c
 
 # Network Topology
 
-![Enterprise Campus Network](Topology/logicalTopology.png)
+![Enterprise Campus Network](Topology/logical_Topology.png)
 
 ## Architecture
 
